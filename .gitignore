@@ -1,0 +1,16 @@
+# CAFAna / ROOT build artifacts
+*.so
+*.d
+*.pcm
+*.rootmap
+*.rdict
+
+# output files 
+output/
+
+# local config with paths
+config/local/
+config/*.local.*
+
+# system files
+.DS_Store
