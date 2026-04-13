@@ -10,7 +10,7 @@ output/
 
 # local config with paths
 config/local/
-config/*_local.json
+config/*.local.json
 
 # system files
 .DS_Store
