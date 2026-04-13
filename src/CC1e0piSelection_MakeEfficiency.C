@@ -2,9 +2,9 @@
 #include "sbnana/CAFAna/Core/Spectrum.h"
 
 // helpers
-#include "./helpers/CC1e0piSelection_Cuts.h"
-#include "./helpers/CC1e0piSelection_TruthCuts.h"
-#include "./helpers/CC1e0piSelection_Efficiency.h"
+#include "../include/CC1e0piSelection_Cuts.h"
+#include "../include/CC1e0piSelection_TruthCuts.h"
+#include "../include//CC1e0piSelection_Efficiency.h"
 
 
 // ROOT stuff
@@ -55,7 +55,7 @@ void CC1e0piSelection_MakeEfficiency() {
     NuLoader.Go();
     
     gROOT->SetBatch(kTRUE);
-    TFile FOut("./root/CC1e0piSelection_Efficiency.root", "recreate");
+    TFile FOut("../output/root/CC1e0piSelection_Efficiency.root", "recreate");
     double TargetPOT;
 
     // selection efficiency
@@ -100,7 +100,7 @@ void CC1e0piSelection_MakeEfficiency() {
     cEffProg->Write();
 
     gStyle->SetLineScalePS(5);
-    cEffProg->SaveAs("plots/CC1e0piSelection_Efficiency.pdf");
+    cEffProg->SaveAs("../output/pdf/CC1e0piSelection_Efficiency.pdf");
     delete cEffProg;
 
     FOut.Close();

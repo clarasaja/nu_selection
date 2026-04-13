@@ -2,8 +2,8 @@
 #include "sbnana/CAFAna/Core/Spectrum.h"
 
 // helpers
-#include "./helpers/CC1e0piSelection_Cuts.h"
-#include "./helpers/CC1e0piSelection_TruthCuts.h"
+#include "../include/CC1e0piSelection_Cuts.h"
+#include "../include/CC1e0piSelection_TruthCuts.h"
 
 // ROOT stuff
 #include "TCanvas.h"
@@ -23,20 +23,7 @@ using namespace ana;
 
 void CC1e0piSelection_MakePurity() {
     
-    // CNAF NuMI MC
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/local/users/cfarnese/NUMI/NUMI_MC/*.root"; ///< CV
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/plain/user/cfarnese/RT_production_NuMIreference_20May25/mc*/caf_here/*.flat.caf.root"; ///< reference
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/plain/user/cfarnese/RT_NUMI_nuonly_May18/run*/cafmakerjob_here_2d_updated/*.flat.caf.root"; ///< new BDT
-
-    // FNAL NuMI MC
-    // const std::string TargetFile = "/exp/icarus/data/users/rtriozzi/mc/numi_FRFIX/concat_NuMI_MC_FRFIX_*.root";
-
-    // FNAL development NuMI MC
-    // const std::string TargetFile = "/pnfs/icarus/persistent/users/rtriozzi/nugraph/standard/numinom.flat.caf.root"; ///< NuE
-    //const std::string TargetFile = "/pnfs/icarus/persistent/users/rtriozzi/nugraph/standard/numinom.flat.caf.root"; ///< nominal flux, mostly NuMu
-
-    // FNAL development NuMI MC / NG2 filter + NG2 PID
-    const std::string TargetFile = "/pnfs/icarus/persistent/users/rtriozzi/nugraph/nugraphreco/numinue_NuGraphReco.flat.caf.root";
+    const std::string TargetFile = " ";
 
     SpectrumLoader NuLoader(TargetFile);
 
@@ -74,7 +61,7 @@ void CC1e0piSelection_MakePurity() {
 
     NuLoader.Go();
  
-    TFile FOut("./root/CC1e0piSelection_Purity.root", "recreate");
+    TFile FOut("../output/root/CC1e0piSelection_Purity.root", "recreate");
 
     TCanvas *c[kNVar];
     TLegend *l[kNVar];
@@ -135,7 +122,7 @@ void CC1e0piSelection_MakePurity() {
         l[iVar]->SetTextSize(0.0275);
         l[iVar]->Draw();
         c[iVar]->Write();
-        title = std::string("plots/") + SelectionPlots[iVar].suffix + std::string("_Purity.pdf");
+        title = std::string("../output/pdf/") + SelectionPlots[iVar].suffix + std::string("_Purity.pdf");
 
         gStyle->SetLineScalePS(5);
         c[iVar]->SaveAs(title.c_str());

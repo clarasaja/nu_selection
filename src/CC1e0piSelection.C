@@ -1,10 +1,10 @@
 #include "sbnana/CAFAna/Core/SpectrumLoader.h"
 #include "sbnana/CAFAna/Core/Spectrum.h"
 
-#include "./helpers/CC1e0piSelection_Cuts.h"
-#include "./helpers/CC1e0piSelection_TruthCuts.h"
-#include "./helpers/CC1e0piSelection_Efficiency.h"
-#include "./helpers/Debuggers.h"
+#include "../include/CC1e0piSelection_Cuts.h"
+#include "../include/CC1e0piSelection_TruthCuts.h"
+#include "../include/CC1e0piSelection_Efficiency.h"
+#include "../include/Debuggers.h"
 
 // root stuff
 #include "TCanvas.h"
@@ -20,27 +20,8 @@
 using namespace ana;
 
 void CC1e0piSelection() {
-
-    // CNAF NuMI MC
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/local/users/cfarnese/NUMI/NUMI_MC/*.root"; ///< CV
     
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/plain/user/cfarnese/RT_production_NuMIreference_20May25/mc*/caf_here/*.flat.caf.root"; ///< reference
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/plain/user/cfarnese/RT_NUMI_nuonly_May18/run*/cafmakerjob_here_2d_updated/*.flat.caf.root"; ///< new BDT
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/plain/user/cfarnese/RT_production_NuMIcheating_20May25/mc*/caf_here/*.flat.caf.root"; ///< vertex cheated
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/plain/user/cfarnese/RT_production_NuMIcheatingnew_21May25/mc*/caf_here/*.flat.caf.root"; ///< BDT vertex closest to truth
-    // const std::string TargetFile = "/storage/gpfs_data/icarus/local/users/rtriozzi/concats/NuMI_CV_MopUp_NewBDT/*.root"; ///< Mop-up and then new BDT (trained without mop-up)
-
-    // FNAL NuMI MC
-    // const std::string TargetFile = "/exp/icarus/data/users/rtriozzi/mc/numi_FRFIX/concat_NuMI_MC_FRFIX_*.root";
-
-    // FNAL NuGraph MC
-    // const std::string TargetFile = "/pnfs/sbn/data/sbn_fd/poms_production/mc/2025A_ICARUS_NuGraph2/AddedNuGraph2_NuMI_sample_29May2025/v10_06_00_01p01/haddedFlatcaf/*.root";
-
-    // FNAL development NuMI MC
-    // const std::string TargetFile = "/pnfs/icarus/persistent/users/rtriozzi/nugraph/standard/numinue.flat.caf.root"; ///< NuE
-    // const std::string TargetFile = "/pnfs/icarus/persistent/users/rtriozzi/nugraph/standard/numinom.flat.caf.root"; ///< nominal flux, mostly NuMu 
-    // const std::string TargetFile = "/pnfs/icarus/persistent/users/rtriozzi/nugraph/nugraphreco/numinue_NuGraphReco.flat.caf.root"; ///< NuE
-    const std::string TargetFile = "/pnfs/icarus/persistent/users/rtriozzi/nugraph/nugraphreco/numinom_NuGraphReco.flat.caf.root"; ///< nominal flux, mostly NuMu 
+    const std::string TargetFile = " "; 
 
     SpectrumLoader NuLoader(TargetFile);
 
@@ -63,7 +44,7 @@ void CC1e0piSelection() {
 
     NuLoader.Go();
 
-    TFile FOut("./root/CC1e0piSelection.root", "recreate");
+    TFile FOut("../output/root/CC1e0piSelection.root", "recreate");
 
     TCanvas *c[kNVar];
     TLegend *l[kNVar];
@@ -134,7 +115,7 @@ void CC1e0piSelection() {
         c[iVar]->Write();
 
         gStyle->SetLineScalePS(5);
-        title = std::string("plots/") + SelectionPlots[iVar].suffix + std::string(".pdf");
+        title = std::string("../output/pdf/") + SelectionPlots[iVar].suffix + std::string(".pdf");
         c[iVar]->SaveAs(title.c_str());
     }
 
