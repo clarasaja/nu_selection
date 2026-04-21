@@ -1,0 +1,13 @@
+{
+  "label": "NuMI NuE Only Sample",
+  "tag": "numi_nue",
+
+  "data_type": "mc",
+  "beam": "numi",
+
+  "icaruscode_version": "v10_06_00_01p01",
+
+  "POT": 3.12e20,
+
+  "description": "NuMI FNAL development Monte Carlo sample enriched in electron neutrinos (NuE), using standard reconstruction"
+}

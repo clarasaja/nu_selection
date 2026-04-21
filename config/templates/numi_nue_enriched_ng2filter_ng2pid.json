@@ -1,0 +1,13 @@
+{
+  "label": "NuMI NuE Enriched with NG2 Filter and NG2 PID",
+  "tag": "numi_nue_ng2filter_ng2pid",
+
+  "data_type": "mc",
+  "beam": "numi",
+
+  "icaruscode_version": "v10_06_00",
+
+  "POT": 3.12e20,
+
+  "description": "NuMI Monte Carlo sample enriched in electron neutrinos with NG2 filter and NG2 particle identification"
+}

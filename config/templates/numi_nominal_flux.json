@@ -1,0 +1,13 @@
+{
+  "label": "NuMI Nominal Flux Sample",
+  "tag": "numi_nom_flux",
+
+  "data_type": "mc",
+  "beam": "numi",
+
+  "icaruscode_version": "v10_06_00",
+
+  "POT": 3.12e20,
+
+  "description": "NuMI nominal flux Monte Carlo sample"
+}

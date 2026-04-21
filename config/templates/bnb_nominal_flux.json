@@ -1,0 +1,13 @@
+{
+  "label": "BNB Nominal Flux Sample",
+  "tag": "bnb_nom_flux",
+
+  "data_type": "mc",
+  "beam": "bnb",
+
+  "icaruscode_version": "v10_06_00",
+
+  "POT": 5e20,
+
+  "description": "Booster Neutrino Beam (BNB) Monte Carlo sample with nominal flux, using standard reconstruction"
+}
